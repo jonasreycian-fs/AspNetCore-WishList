@@ -10,17 +10,12 @@ using WishList.Models;
 
 namespace WishList.Controllers
 {
-    [Route("[controller]")]
     public class ItemController : Controller
     {
-
-
-        private readonly ILogger<ItemController> _logger;
         private readonly ApplicationDbContext _context;
 
-        public ItemController(ILogger<ItemController> logger, ApplicationDbContext context)
+        public ItemController(ApplicationDbContext context)
         {
-            _logger = logger;
             this._context = context;
         }
 
@@ -45,12 +40,6 @@ namespace WishList.Controllers
             _context.Items.Remove(itemToDelete);
             _context.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
         }
     }
 }
