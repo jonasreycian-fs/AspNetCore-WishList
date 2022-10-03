@@ -20,13 +20,13 @@ namespace WishList.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return RedirectToPage("./Error");
+            return View("Error");
         }
     }
 }
